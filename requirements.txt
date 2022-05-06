@@ -1,5 +1,4 @@
 discord.py
-PyNaCl==1.3.0
 pandas
 gspread
 dnspython==1.16.0
