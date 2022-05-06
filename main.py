@@ -232,8 +232,12 @@ async def on_message(message):
     # ADDS THE PLAYER TO THE PARTICIPANTS LIST
 
     elif not_full and user_message.lower() == '!me':
-        if message.author.mention not in participant_tags:
-            participant_tags.append(message.author.mention)
+        author_tag = message.author.mention
+        if '!' in author_tag:
+            author_tag = author_tag.split('!')
+            author_tag = ''.join(author_tag)
+        if author_tag not in participant_tags:
+            participant_tags.append(author_tag)
             participant_names.append(str(message.author).split('#')[0])
             emoji = '\N{THUMBS UP SIGN}'
             await message.add_reaction(emoji)  # react to the user's message
